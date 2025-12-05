@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heather Salter Therapy</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Inter&display=swap" rel="stylesheet">
+    <!-- Google Fonts fallback for Inter if Aptos not available -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <style>
         /* Global Styles */
         body {
@@ -22,35 +22,33 @@
             text-align: center;
             padding: 80px 20px 60px 20px;
             background-color: #C8D8C0; /* sage */
-            border-bottom: 4px solid #FFA56B; /* subtle accent */
         }
         header h1 {
-            font-family: 'Comfortaa', cursive; /* friendly, engaging font */
+            font-family: 'Aptos', 'Inter', sans-serif;
             font-size: 4em;
             margin-bottom: 20px;
             color: #4E7070;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
-        /* Navigation buttons */
-        .nav-buttons {
+        /* Navigation tabs */
+        .nav-tabs {
             display: flex;
             justify-content: center;
             flex-wrap: wrap;
             gap: 15px;
             margin-top: 20px;
         }
-        .nav-buttons a {
+        .nav-tabs a {
             display: inline-block;
             padding: 10px 20px;
-            background-color: #FFA56B; /* pastel orange */
-            color: #fff;
-            border-radius: 8px;
+            background-color: #E9E5DF; /* soft pastel */
+            color: #2F2F2F;
+            border-radius: 8px 8px 0 0; /* tab-like shape */
+            border: 1px solid #D1CFC8;
             font-weight: bold;
-            transition: background-color 0.3s ease;
         }
-        .nav-buttons a:hover {
-            background-color: #FF8C42;
+        .nav-tabs a:hover {
+            background-color: #D9D3C6;
         }
 
         /* Sections */
@@ -63,7 +61,7 @@
 
         /* About Section */
         section.about-section {
-            background-color: #FFDAB9; /* pastel orange */
+            background-color: #FDEEDC; /* warm pastel orange */
         }
         .about-container {
             display: flex;
@@ -82,7 +80,7 @@
         .about-text h2 {
             font-family: 'Inter', sans-serif;
             margin-bottom: 15px;
-            font-size: 2.2em; /* bigger welcome header */
+            font-size: 2.2em;
             color: #4E7070;
         }
         .about-text p {
@@ -96,7 +94,7 @@
 
         /* Call to Action Section */
         section.cta-section {
-            background-color: #C8E6C9; /* pastel green */
+            background-color: #DFF0E2; /* warm pastel green */
             text-align: center;
         }
         section.cta-section h2 {
@@ -106,11 +104,17 @@
         section.cta-section p {
             margin-bottom: 20px;
         }
-        section.cta-section .button {
-            background-color: #FFA56B;
+        .cta-button {
+            display: inline-block;
+            padding: 14px 30px;
+            background-color: #6B8F8F;
+            color: #fff;
+            border-radius: 8px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
         }
-        section.cta-section .button:hover {
-            background-color: #FF8C42;
+        .cta-button:hover {
+            background-color: #587373;
         }
 
         /* Footer */
@@ -128,8 +132,9 @@
             .about-container img {
                 max-width: 100%;
             }
-            .nav-buttons {
+            .nav-tabs {
                 flex-direction: column;
+                gap: 10px;
             }
         }
     </style>
@@ -139,7 +144,7 @@
 <!-- Header / Hero -->
 <header>
     <h1>Heather Salter Therapy</h1>
-    <div class="nav-buttons">
+    <div class="nav-tabs">
         <a href="index.html">Home</a>
         <a href="about.html">About Me</a>
         <a href="therapy.html">Therapy & Fees</a>
@@ -175,8 +180,8 @@
 <!-- Call to Action Section -->
 <section class="cta-section">
     <h2>Ready to Begin?</h2>
-    <p>Take the first step towards understanding yourself and feeling supported. You can book a free introductory call or a therapy session below.</p>
-    <a href="appointment.html" class="button">Book Now</a>
+    <p>Take the first step towards understanding yourself and feeling supported. You can book a free 20 minute introductory call with me below.</p>
+    <a href="appointment.html" class="cta-button">Book Now</a>
 </section>
 
 <!-- Footer -->
