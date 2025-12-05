@@ -10,7 +10,10 @@
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
-    background: linear-gradient(to bottom, #F7F7F2 0%, #FAF6F0 100%); /* soft gradient for depth */
+    background: linear-gradient(to bottom, #F7F7F2 0%, #FAF6F0 100%);
+    /* subtle faint texture pattern */
+    background-image: url('https://www.transparenttextures.com/patterns/fabric-of-squares.png');
+    background-repeat: repeat;
     color: #2F2F2F;
     line-height: 1.6;
 }
@@ -22,7 +25,7 @@ header {
     text-align: center;
     padding: 80px 20px 60px 20px;
     background-color: #C8D8C0; /* sage */
-    border-bottom: 4px solid #D1CFC8; /* subtle divider */
+    border-bottom: 4px solid #1F1F1F; /* darker divider */
 }
 header h1 {
     font-family: 'Aptos', 'Inter', sans-serif;
@@ -38,14 +41,14 @@ header h1 {
     flex-wrap: wrap;
     gap: 15px;
     position: absolute;
-    bottom: -20px; /* aligns tabs to bottom of header */
+    bottom: 0; /* aligns bottom of tabs with divider */
     left: 50%;
     transform: translateX(-50%);
 }
 .nav-tabs a {
     display: inline-block;
     padding: 10px 20px;
-    background-color: #E9E5DF; /* pastel tab background */
+    background-color: #E9E5DF; /* soft pastel tab */
     color: #2F2F2F;
     border-radius: 8px 8px 0 0;
     border: 1px solid #D1CFC8;
@@ -61,7 +64,7 @@ header h1 {
 /* Sections */
 section {
     max-width: 900px;
-    margin: 60px auto 40px auto; /* more top margin to account for tab overlap */
+    margin: 60px auto 40px auto;
     padding: 40px 20px;
     border-radius: 12px;
 }
@@ -114,14 +117,14 @@ section.cta-section p {
 .cta-button {
     display: inline-block;
     padding: 14px 30px;
-    background-color: #6B8F8F;
+    background-color: #D2691E; /* burnt orange */
     color: #fff;
     border-radius: 8px;
     font-weight: bold;
     transition: background-color 0.3s ease;
 }
 .cta-button:hover {
-    background-color: #587373;
+    background-color: #B45A16;
 }
 
 /* Footer */
