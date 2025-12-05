@@ -16,37 +16,43 @@
             line-height: 1.6;
         }
         a { text-decoration: none; color: inherit; }
-        header, footer { background-color: #C8D8C0; color: #2F2F2F; }
-        nav a { margin: 0 15px; font-weight: bold; }
 
         /* Header/Hero */
         header {
             text-align: center;
-            padding: 60px 20px 40px 20px;
+            padding: 80px 20px 60px 20px;
+            background-color: #C8D8C0; /* sage */
         }
         header h1 {
-            font-family: 'Aptos', 'Inter', sans-serif; /* Aptos preferred, fallback to Inter */
+            font-family: 'Aptos', 'Inter', sans-serif; /* Aptos preferred */
             font-size: 4em;
-            margin-bottom: 10px;
+            margin-bottom: 20px;
         }
         .button {
             display: inline-block;
-            padding: 12px 25px;
+            padding: 14px 30px;
             background-color: #6B8F8F;
             color: #fff;
             border-radius: 8px;
             font-weight: bold;
             margin-top: 20px;
+            transition: background-color 0.3s ease;
         }
         .button:hover {
-            background-color: #587373;
+            background-color: #4e7070;
         }
 
         /* Sections */
         section {
             max-width: 900px;
             margin: 40px auto;
-            padding: 20px;
+            padding: 40px 20px;
+            border-radius: 12px;
+        }
+
+        /* About Section */
+        section.about-section {
+            background-color: #FFF8F0;
         }
         .about-container {
             display: flex;
@@ -57,21 +63,29 @@
         .about-container img {
             max-width: 400px;
             border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
         .about-text {
             flex: 1;
         }
         .about-text p {
-            margin-bottom: 20px; /* extra space between paragraph and bullet points */
+            margin-bottom: 25px; /* extra space before bullet points */
         }
         h2 {
             font-family: 'Inter', sans-serif;
             margin-bottom: 10px;
+            color: #4e7070; /* subtle accent colour */
         }
         ul {
             margin-top: 10px;
             list-style-type: disc;
             padding-left: 20px;
+        }
+
+        /* Call to Action Section */
+        section.cta-section {
+            background-color: #E6F2F2; /* muted teal */
+            text-align: center;
         }
 
         /* Footer */
@@ -81,6 +95,7 @@
             background-color: #E3DCC7;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
             .about-container {
                 flex-direction: column;
@@ -93,14 +108,14 @@
 </head>
 <body>
 
-<!-- Header -->
+<!-- Header / Hero -->
 <header>
     <h1>Heather Salter Therapy</h1>
     <a href="appointment.html" class="button">Book an Appointment</a>
 </header>
 
 <!-- About Section -->
-<section>
+<section class="about-section">
     <div class="about-container">
         <img src="https://via.placeholder.com/400x400?text=Candle+Placeholder" alt="Candle placeholder image">
         <div class="about-text">
@@ -122,8 +137,8 @@
     </div>
 </section>
 
-<!-- Call to Action -->
-<section style="text-align:center;">
+<!-- Call to Action Section -->
+<section class="cta-section">
     <h2>Ready to Begin?</h2>
     <p>Take the first step towards understanding yourself and feeling supported. You can book a free introductory call or a therapy session below.</p>
     <a href="appointment.html" class="button">Book Now</a>
