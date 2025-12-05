@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heather Salter Therapy</title>
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa&family=Inter&display=swap" rel="stylesheet">
+    <!-- Google Fonts fallback for Inter if Aptos not available -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
     <style>
         /* Global Styles */
         body {
@@ -15,116 +15,4 @@
             color: #2F2F2F;
             line-height: 1.6;
         }
-        a { text-decoration: none; color: inherit; }
-        header, footer { background-color: #C8D8C0; color: #2F2F2F; }
-        nav a { margin: 0 15px; font-weight: bold; }
-
-        /* Header/Hero */
-        header {
-            text-align: center;
-            padding: 60px 20px 40px 20px;
-        }
-        header h1 {
-            font-family: 'Comfortaa', cursive; /* friendly but professional font */
-            font-size: 4em;
-            margin-bottom: 10px;
-        }
-        .button {
-            display: inline-block;
-            padding: 12px 25px;
-            background-color: #6B8F8F;
-            color: #fff;
-            border-radius: 8px;
-            font-weight: bold;
-            margin-top: 20px;
-        }
-        .button:hover {
-            background-color: #587373;
-        }
-
-        /* Sections */
-        section {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-        }
-        .about-container {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 20px;
-        }
-        .about-container img {
-            max-width: 400px;
-            border-radius: 12px;
-        }
-        .about-text {
-            flex: 1;
-        }
-        h2 {
-            font-family: 'Inter', sans-serif;
-            margin-bottom: 10px;
-        }
-        ul {
-            margin-top: 10px;
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #E3DCC7;
-        }
-
-        @media (max-width: 768px) {
-            .about-container {
-                flex-direction: column;
-            }
-            .about-container img {
-                max-width: 100%;
-            }
-        }
-    </style>
-</head>
-<body>
-
-<!-- Header -->
-<header>
-    <h1>Heather Salter Therapy</h1>
-    <a href="appointment.html" class="button">Book an Appointment</a>
-</header>
-
-<!-- About Section -->
-<section>
-    <div class="about-container">
-        <img src="https://via.placeholder.com/400x400?text=Candle+Placeholder" alt="Candle placeholder image">
-        <div class="about-text">
-            <h2>Welcome</h2>
-            <p>My name is Heather Salter. I am a person-centred therapist working with individuals over 18. At Heather Salter Therapy, I offer ongoing therapy to support you in your journey to better wellbeing and personal growth. I specialise in the following difficulties:</p>
-            <ul>
-                <li>Relationships & Dating</li>
-                <li>Anxiety and Depression</li>
-                <li>Phobias</li>
-                <li>ADHD & ASC (neurodiversity)</li>
-                <li>Grief and Loss</li>
-            </ul>
-        </div>
-    </div>
-</section>
-
-<!-- Call to Action -->
-<section style="text-align:center;">
-    <h2>Ready to Begin?</h2>
-    <p>Take the first step towards understanding yourself and feeling supported. You can book a free introductory call or a therapy session below.</p>
-    <a href="appointment.html" class="button">Book Now</a>
-</section>
-
-<!-- Footer -->
-<footer>
-    <p>&copy; 2025 Heather Salter Therapy</p>
-</footer>
-
-</body>
-</html>
+        a { text-decoration: none; color: inherit;
