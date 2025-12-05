@@ -1,143 +1,153 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Heather Salter Therapy</title>
-    <!-- Google Fonts fallback for Inter if Aptos not available -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
-    <style>
-        /* Global Styles */
-        body {
-            margin: 0;
-            font-family: 'Inter', sans-serif;
-            background-color: #F7F7F2;
-            color: #2F2F2F;
-            line-height: 1.6;
-        }
-        a { text-decoration: none; color: inherit; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Heather Salter Therapy</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
+<style>
+/* Global Styles */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(to bottom, #F7F7F2 0%, #FAF6F0 100%); /* soft gradient for depth */
+    color: #2F2F2F;
+    line-height: 1.6;
+}
+a { text-decoration: none; color: inherit; }
 
-        /* Header/Hero */
-        header {
-            text-align: center;
-            padding: 80px 20px 60px 20px;
-            background-color: #C8D8C0; /* sage */
-        }
-        header h1 {
-            font-family: 'Aptos', 'Inter', sans-serif;
-            font-size: 4em;
-            margin-bottom: 20px;
-            color: #4E7070;
-        }
+/* Header/Hero */
+header {
+    position: relative;
+    text-align: center;
+    padding: 80px 20px 60px 20px;
+    background-color: #C8D8C0; /* sage */
+    border-bottom: 4px solid #D1CFC8; /* subtle divider */
+}
+header h1 {
+    font-family: 'Aptos', 'Inter', sans-serif;
+    font-size: 4em;
+    margin-bottom: 20px;
+    color: #4E7070;
+}
 
-        /* Navigation tabs */
-        .nav-tabs {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .nav-tabs a {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #E9E5DF; /* soft pastel */
-            color: #2F2F2F;
-            border-radius: 8px 8px 0 0; /* tab-like shape */
-            border: 1px solid #D1CFC8;
-            font-weight: bold;
-        }
-        .nav-tabs a:hover {
-            background-color: #D9D3C6;
-        }
+/* Navigation Tabs */
+.nav-tabs {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    position: absolute;
+    bottom: -20px; /* aligns tabs to bottom of header */
+    left: 50%;
+    transform: translateX(-50%);
+}
+.nav-tabs a {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #E9E5DF; /* pastel tab background */
+    color: #2F2F2F;
+    border-radius: 8px 8px 0 0;
+    border: 1px solid #D1CFC8;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+.nav-tabs a:hover {
+    background-color: #F1EEE8;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transform: translateY(-2px);
+}
 
-        /* Sections */
-        section {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 40px 20px;
-            border-radius: 12px;
-        }
+/* Sections */
+section {
+    max-width: 900px;
+    margin: 60px auto 40px auto; /* more top margin to account for tab overlap */
+    padding: 40px 20px;
+    border-radius: 12px;
+}
 
-        /* About Section */
-        section.about-section {
-            background-color: #FDEEDC; /* warm pastel orange */
-        }
-        .about-container {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: flex-start;
-            gap: 20px;
-        }
-        .about-container img {
-            max-width: 400px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-        }
-        .about-text {
-            flex: 1;
-        }
-        .about-text h2 {
-            font-family: 'Inter', sans-serif;
-            margin-bottom: 15px;
-            font-size: 2.2em;
-            color: #4E7070;
-        }
-        .about-text p {
-            margin-bottom: 25px;
-        }
-        ul {
-            margin-top: 10px;
-            list-style-type: disc;
-            padding-left: 20px;
-        }
+/* About Section */
+section.about-section {
+    background-color: #FDEEDC; /* warm pastel orange */
+}
+.about-container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 20px;
+}
+.about-container img {
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+.about-text {
+    flex: 1;
+}
+.about-text h2 {
+    font-family: 'Inter', sans-serif;
+    margin-bottom: 15px;
+    font-size: 2.2em;
+    color: #4E7070;
+}
+.about-text p {
+    margin-bottom: 25px;
+}
+ul {
+    margin-top: 10px;
+    list-style-type: disc;
+    padding-left: 20px;
+}
 
-        /* Call to Action Section */
-        section.cta-section {
-            background-color: #DFF0E2; /* warm pastel green */
-            text-align: center;
-        }
-        section.cta-section h2 {
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-        section.cta-section p {
-            margin-bottom: 20px;
-        }
-        .cta-button {
-            display: inline-block;
-            padding: 14px 30px;
-            background-color: #6B8F8F;
-            color: #fff;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: background-color 0.3s ease;
-        }
-        .cta-button:hover {
-            background-color: #587373;
-        }
+/* Call to Action Section */
+section.cta-section {
+    background-color: #DFF0E2; /* warm pastel green */
+    text-align: center;
+}
+section.cta-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+section.cta-section p {
+    margin-bottom: 20px;
+}
+.cta-button {
+    display: inline-block;
+    padding: 14px 30px;
+    background-color: #6B8F8F;
+    color: #fff;
+    border-radius: 8px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.cta-button:hover {
+    background-color: #587373;
+}
 
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 20px;
-            background-color: #E3DCC7;
-        }
+/* Footer */
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #E3DCC7;
+}
 
-        /* Responsive */
-        @media (max-width: 768px) {
-            .about-container {
-                flex-direction: column;
-            }
-            .about-container img {
-                max-width: 100%;
-            }
-            .nav-tabs {
-                flex-direction: column;
-                gap: 10px;
-            }
-        }
-    </style>
+/* Responsive */
+@media (max-width: 768px) {
+    .about-container {
+        flex-direction: column;
+    }
+    .about-container img {
+        max-width: 100%;
+    }
+    .nav-tabs {
+        position: static;
+        transform: none;
+        margin-top: 20px;
+        flex-direction: column;
+        gap: 10px;
+    }
+}
+</style>
 </head>
 <body>
 
@@ -148,7 +158,6 @@
         <a href="index.html">Home</a>
         <a href="about.html">About Me</a>
         <a href="therapy.html">Therapy & Fees</a>
-        <a href="contact.html">Contact</a>
         <a href="appointment.html">Book Appointment</a>
         <a href="support.html">Immediate Support</a>
     </div>
