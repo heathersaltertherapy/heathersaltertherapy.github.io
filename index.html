@@ -12,174 +12,106 @@
     --sage: #C8D8C0;
     --sage-border: #BFD5C3;
     --cream: #FFF8F0;
-    --muted-charcoal: #4A4A4A;
+    --muted-charcoal: #444444;
     --burnt: #C07A3F;
     --burnt-dark: #a86128;
     --section-shadow: 0 8px 18px rgba(31,31,31,0.07);
     --card-shadow: 0 6px 14px rgba(31,31,31,0.06);
   }
 
-  /* ---------- Reset & Global ---------- */
+  /* Reset */
   *{box-sizing:border-box}
-  html,body{height:100%}
   body{
     margin:0;
-    font-family:'Inter',system-ui,Arial,Helvetica,sans-serif;
-    background: linear-gradient(180deg,#F7F7F2 0%, #faf9f5 40%, #f4efe5 100%);
+    font-family:'Inter',sans-serif;
+    background:#F7F7F2;
     color:#2F2F2F;
-    -webkit-font-smoothing:antialiased;
-    -moz-osx-font-smoothing:grayscale;
     line-height:1.5;
   }
-  a{color:inherit;text-decoration:none}
+  a{text-decoration:none;color:inherit}
   img{max-width:100%;height:auto;display:block}
 
-  /* ---------- Page frame (subtle pastel gradient around edges) ---------- */
-  .page-wrap{
-    position:relative;
-    min-height:100%;
-    overflow:hidden;
-  }
-  .page-wrap::before{
-    /* subtle pastel frame using radial gradient mask */
-    content:"";
-    position:fixed;
-    inset:0;
-    pointer-events:none;
-    background: linear-gradient(135deg, rgba(200,216,192,0.10), rgba(247,227,212,0.06), rgba(252,244,238,0.03));
-    mask: radial-gradient(closest-side, rgba(0,0,0,0), rgba(0,0,0,1));
-    mix-blend-mode: normal;
-    z-index: -1;
-  }
-
-  /* ---------- HERO / HEADER ---------- */
+  /* HERO */
   header.site-hero{
-    position:relative;
     background:var(--sage);
-    padding:28px 20px 70px; /* bottom space for tabs to overlap */
+    padding:28px 20px 70px;
     text-align:center;
-    box-shadow: var(--section-shadow);
-    overflow:visible;
-  }
-
-  /* Botanical line-art (SVG placed behind logo) */
-  .hero-bg-svg{
-    position:absolute;
-    left:50%;
-    top:14%;
-    transform:translateX(-50%);
-    width:720px;
-    height:auto;
-    opacity:0.06;
-    pointer-events:none;
-    filter: blur(0.3px);
-    z-index:0;
-  }
-
-  /* Ambient glow behind logo */
-  .logo-glow{
-    position:absolute;
-    left:50%;
-    top:26%;
-    transform:translateX(-50%);
-    width:520px;
-    height:240px;
-    background: radial-gradient(closest-side, rgba(255,250,240,0.55), rgba(255,250,240,0.0));
-    filter: blur(28px);
-    z-index:1;
-    pointer-events:none;
-  }
-
-  /* LOGO (bigger, responsive) */
-  .hero-inner{
     position:relative;
-    z-index:2; /* above bg and glow */
-    max-width:980px;
-    margin:0 auto;
-    padding:0 18px;
-  }
-  .hero-logo{
-    width:680px;      /* twice previous 340 => 680 */
-    max-width:92%;
-    height:auto;
-    display:block;
-    margin:0 auto;
-    opacity:0.99;
-    transform-origin:center;
-    animation: fadeUp .5s ease both;
+    box-shadow:var(--section-shadow);
   }
 
-  /* NAV TABS aligned so bottom of tabs touches divider */
+  /* Logo (reduced size — same as two prompts ago) */
+  .hero-logo{
+    width:340px;
+    max-width:90%;
+    margin:0 auto;
+    display:block;
+  }
+
+  /* Tabs perfectly aligned with divider */
   .nav-tabs{
     position:absolute;
     left:50%;
     transform:translateX(-50%);
-    bottom:0; /* bottom of tabs align with bottom edge of header */
+    bottom:0;
     display:flex;
     gap:18px;
-    z-index:3;
-    align-items:end;
+    z-index:5;
   }
   .nav-tabs a{
-    display:inline-block;
     padding:10px 18px;
     background:#ECE7DF;
     color:var(--muted-charcoal);
     font-weight:600;
     border-radius:8px 8px 0 0;
-    border:1px solid rgba(0,0,0,0.06);
-    box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-    transition:transform .22s ease, background .18s;
+    border:1px solid rgba(0,0,0,0.07);
+    box-shadow:0 2px 6px rgba(0,0,0,0.05);
+    transition:0.25s ease;
   }
   .nav-tabs a:hover{
     transform:translateY(-3px);
     background:#E6E0D6;
   }
 
-  /* Divider line sits immediately below header element:
-     header has bottom padding to position tabs; the divider is outside header and therefore directly under tabs */
+  /* Divider */
   .hero-divider{
     height:3px;
     background:var(--muted-charcoal);
     width:100%;
-    box-shadow: rgba(0,0,0,0.03) 0 1px 0 inset;
   }
 
-  /* ---------- Main layout ---------- */
-  .site-container{ max-width:980px; margin:36px auto; padding:0 18px; position:relative; z-index:2; }
+  /* Main */
+  .site-container{ max-width:980px; margin:36px auto; padding:0 18px; }
 
-  /* Section card with sage border and cream background */
   .card-section{
     background:var(--cream);
     border:2px solid var(--sage-border);
     border-radius:12px;
     padding:28px;
     box-shadow:var(--section-shadow);
-    margin-bottom:28px;
-    animation: fadeUp .6s ease both;
+    margin-bottom:36px;
   }
 
-  /* About two-column grid */
+  /* Welcome section grid */
   .about-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
     gap:22px;
     align-items:start;
   }
+  @media (max-width:820px){
+    .about-grid{ grid-template-columns:1fr; }
+  }
   .about-image img{
     border-radius:12px;
     box-shadow:var(--card-shadow);
   }
-
   .about-text h2{
-    font-family:'Libre Baskerville', serif;
+    font-family:'Libre Baskerville',serif;
     color:#4e7070;
     margin-top:0;
     font-size:1.9rem;
   }
-  .about-text p{ margin-bottom:16px; }
-
-  ul{ padding-left:20px; margin-top:8px; }
 
   /* CTA */
   .cta{
@@ -188,11 +120,8 @@
     padding:34px 22px;
     text-align:center;
     box-shadow:var(--section-shadow);
-    margin-bottom:28px;
-    animation: fadeUp .6s ease both;
+    margin-bottom:36px;
   }
-  .cta h3{ margin:0 0 8px; font-size:1.6rem; color:#4e7070; }
-  .cta p{ margin:0 0 14px; color:#444; }
   .cta .btn{
     display:inline-block;
     background:var(--burnt);
@@ -200,208 +129,156 @@
     padding:12px 28px;
     border-radius:8px;
     font-weight:600;
-    transition:background .18s ease, transform .18s;
+    transition:0.2s;
   }
-  .cta .btn:hover{ background:var(--burnt-dark); transform:translateY(-3px); }
-
-  /* Animated wavy dividers between sections */
-  .wave-divider{
-    width:100%;
-    overflow:hidden;
-    line-height:0;
-  }
-  .wave-divider svg{ display:block; width:100%; height:60px; transform:translateY(1px); opacity:0.95; }
-  /* simple horizontal slide animation for the wave background */
-  .wave-anim{ animation: waveShift 14s linear infinite; }
-
-  @keyframes waveShift {
-    0%{ transform:translateX(0) }
-    50%{ transform:translateX(-12%) }
-    100%{ transform:translateX(0) }
+  .cta .btn:hover{
+    background:var(--burnt-dark);
+    transform:translateY(-3px);
   }
 
   /* Testimonials */
   .testimonials{
-    max-width:880px;
-    margin:0 auto 36px;
+    background:#ffffff;
     padding:24px;
     border-radius:10px;
-    background:linear-gradient(180deg,#fffefc,#fbfaf8);
     box-shadow:var(--section-shadow);
+    max-width:880px;
+    margin:0 auto 36px;
   }
-  .testimonials h3{ font-family:'Libre Baskerville', serif; margin:0 0 14px; color:#4e7070; text-align:center; }
-  .testi-window{ min-height:110px; display:flex; align-items:center; justify-content:center; padding:8px 10px; }
-  .testi-slide{ display:none; text-align:center; color:#333; }
-  .testi-slide.active{ display:block; animation:fadeIn .6s ease; }
-  .testi-controls{ display:flex; gap:8px; justify-content:center; margin-top:12px; }
-  .testi-controls button{ background:#ECE7DF; border:none; padding:8px 12px; border-radius:8px; cursor:pointer; font-weight:600; }
-  .testi-controls button:hover{ background:#E0D9CF; transform:translateY(-3px); }
+  .testimonials h3{
+    font-family:'Libre Baskerville',serif;
+    text-align:center;
+    margin-top:0;
+    color:#4e7070;
+  }
+  .testi-window{
+    min-height:110px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:10px;
+    text-align:center;
+  }
+  .testi-slide{ display:none; }
+  .testi-slide.active{ display:block; }
+  .testi-controls{
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    margin-top:12px;
+  }
+  .testi-controls button{
+    background:#ECE7DF;
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+  }
+  .testi-controls button:hover{
+    background:#E0D9CF;
+  }
 
   /* Footer */
-  footer.site-footer{ background:#E3DCC7; padding:20px; text-align:center; }
-
-  /* small utilities */
-  @keyframes fadeUp{ from{opacity:0; transform:translateY(10px)} to{opacity:1; transform:none} }
-  @keyframes fadeIn{ from{opacity:0} to{opacity:1} }
-
-  /* responsiveness */
-  @media (max-width:900px){
-    .about-grid{ grid-template-columns:1fr; }
-    .hero-bg-svg{ width:420px; top:6%; }
-  }
-  @media (max-width:680px){
-    .hero-logo{ width:360px; }
-    .nav-tabs{ position:static; transform:none; bottom:auto; margin-top:12px; gap:10px; }
-    header.site-hero{ padding-bottom:44px; }
+  footer{
+    background:#E3DCC7;
+    padding:20px;
+    text-align:center;
   }
 </style>
 </head>
 
 <body>
-  <div class="page-wrap">
+<header class="site-hero">
+  <img src="Logo 1.png" alt="Heather Salter Therapy logo" class="hero-logo">
 
-    <!-- HERO -->
-    <header class="site-hero" role="banner">
-      <!-- subtle botanical background SVG (very low opacity) -->
-      <svg class="hero-bg-svg" viewBox="0 0 800 400" aria-hidden="true" focusable="false">
-        <g fill="none" stroke="#3f5b51" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M120 220c40-80 160-80 200-20 20 30 30 60 90 80" />
-          <path d="M680 200c-50-70-180-80-240-10-22 26-40 60-100 80" />
-          <path d="M200 120c40-20 120-30 180 30" />
-          <path d="M560 140c-30-10-90-14-140 20" />
-        </g>
-      </svg>
+  <nav class="nav-tabs">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="therapy.html">Therapy &amp; Fees</a>
+    <a href="appointment.html">Book Appointment</a>
+    <a href="support.html">Support</a>
+  </nav>
+</header>
 
-      <!-- ambient glow behind logo -->
-      <div class="logo-glow" aria-hidden="true"></div>
+<div class="hero-divider"></div>
 
-      <div class="hero-inner">
-        <!-- LOGO (make sure file exists: "Logo 1.png") -->
-        <img src="Logo 1.png" alt="Heather Salter Therapy logo" class="hero-logo" />
+<main class="site-container">
+
+  <section class="card-section">
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="PXL_20240509_161057064~2.jpg" alt="Candle placeholder">
       </div>
 
-      <!-- NAV TABS - bottom:0 so tabs bottom aligns with header bottom -->
-      <nav class="nav-tabs" role="navigation" aria-label="Primary">
-        <a href="index.html">Home</a>
-        <a href="about.html">About Me</a>
-        <a href="therapy.html">Therapy &amp; Fees</a>
-        <a href="appointment.html">Book Appointment</a>
-        <a href="support.html">Support</a>
-      </nav>
-    </header>
+      <div class="about-text">
+        <h2>Welcome</h2>
+        <p>My name is Heather Salter. I am a person-centred therapist working with individuals over 18. I offer ongoing therapeutic support to aid you in your journey to better wellbeing and personal development. I specialise in the following difficulties:</p>
 
-    <!-- divider line sitting directly under the header/tabs -->
-    <div class="hero-divider"></div>
+        <ul>
+          <li>Relationships & Dating</li>
+          <li>Low self-esteem & lack of confidence</li>
+          <li>Anxiety and Depression</li>
+          <li>Phobias</li>
+          <li>Sexuality, Gender, LGBTQ+ difficulties</li>
+          <li>ADHD & ASC (neurodiversity)</li>
+          <li>Grief and Loss</li>
+          <li>Stress management</li>
+          <li>Anger management</li>
+          <li>Personal Development</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <!-- animated wave divider between hero and about -->
-    <div class="wave-divider" aria-hidden="true">
-      <svg class="wave-anim" viewBox="0 0 1440 60" preserveAspectRatio="none">
-        <path fill="#fff8f0" d="M0,20 C240,120 360,0 720,30 C1080,60 1200,10 1440,30 L1440 60 L0 60 Z"></path>
-      </svg>
+  <section class="cta">
+    <h3>Ready to Begin?</h3>
+    <p>Take the first step towards understanding yourself and feeling supported. You can book a free 20 minute introductory call with me below.</p>
+    <a class="btn" href="appointment.html">Book now</a>
+  </section>
+
+  <section class="testimonials">
+    <h3>Testimonials</h3>
+
+    <div class="testi-window" id="testi-window">
+      <div class="testi-slide active">
+        <blockquote>"Heather created a calm, accepting space where I felt genuinely heard. My anxiety improved and I found new clarity."</blockquote>
+        <cite>— J, Hampshire</cite>
+      </div>
+
+      <div class="testi-slide">
+        <blockquote>"The sessions helped me understand my patterns and develop tools for stress management. Highly recommended."</blockquote>
+        <cite>— R, UK</cite>
+      </div>
+
+      <div class="testi-slide">
+        <blockquote>"Compassionate, patient and professional. The introductory call made all the difference."</blockquote>
+        <cite>— S, Online Client</cite>
+      </div>
     </div>
 
-    <!-- MAIN SITE CONTENT -->
-    <main class="site-container" role="main">
+    <div class="testi-controls">
+      <button id="prevTesti">Prev</button>
+      <button id="nextTesti">Next</button>
+    </div>
+  </section>
 
-      <!-- WELCOME / ABOUT -->
-      <section class="card-section" aria-labelledby="welcome-heading">
-        <div class="about-grid">
-          <div class="about-image">
-            <img src="PXL_20240509_161057064~2.jpg" alt="Candle placeholder">
-          </div>
+</main>
 
-          <div class="about-text">
-            <h2 id="welcome-heading">Welcome</h2>
-            <p>My name is Heather Salter. I am a person-centred therapist working with individuals over 18. I offer ongoing therapeutic support to aid you in your journey to better wellbeing and personal development. I specialise in the following difficulties:</p>
-
-            <ul>
-              <li>Relationships &amp; Dating</li>
-              <li>Low self-esteem &amp; lack of confidence</li>
-              <li>Anxiety and Depression</li>
-              <li>Phobias</li>
-              <li>Sexuality, Gender, LGBTQ+ difficulties</li>
-              <li>ADHD &amp; ASC (neurodiversity)</li>
-              <li>Grief and Loss</li>
-              <li>Stress management</li>
-              <li>Anger management</li>
-              <li>Personal Development</li>
-            </ul>
-          </div>
-        </div>
-      </section>
-
-      <!-- wave divider between about and CTA -->
-      <div class="wave-divider" aria-hidden="true">
-        <svg class="wave-anim" viewBox="0 0 1440 60" preserveAspectRatio="none">
-          <path fill="#F7E3D4" d="M0,10 C240,80 360,0 720,30 C1080,60 1200,10 1440,30 L1440 60 L0 60 Z"></path>
-        </svg>
-      </div>
-
-      <!-- CTA -->
-      <section class="cta" aria-labelledby="cta-heading">
-        <h3 id="cta-heading">Ready to Begin?</h3>
-        <p>Take the first step towards understanding yourself and feeling supported. You can book a free 20 minute introductory call with me below.</p>
-        <a class="btn" href="appointment.html">Book now</a>
-      </section>
-
-      <!-- wave divider between CTA and Testimonials -->
-      <div class="wave-divider" aria-hidden="true">
-        <svg class="wave-anim" viewBox="0 0 1440 60" preserveAspectRatio="none">
-          <path fill="#fbfaf8" d="M0,30 C240,0 360,80 720,30 C1080,-20 1200,50 1440,30 L1440 60 L0 60 Z"></path>
-        </svg>
-      </div>
-
-      <!-- TESTIMONIALS (own section) -->
-      <section class="testimonials" aria-label="Testimonials">
-        <h3>Testimonials</h3>
-
-        <div class="testi-window" id="testi-window" aria-live="polite">
-          <div class="testi-slide active">
-            <blockquote>"Heather created a calm, accepting space where I felt genuinely heard. My anxiety improved and I found new clarity."</blockquote>
-            <cite>— J, Hampshire</cite>
-          </div>
-
-          <div class="testi-slide">
-            <blockquote>"The sessions helped me understand my patterns and develop tools for stress management. Highly recommended."</blockquote>
-            <cite>— R, UK</cite>
-          </div>
-
-          <div class="testi-slide">
-            <blockquote>"Compassionate, patient and professional. The introductory call made all the difference."</blockquote>
-            <cite>— S, Online Client</cite>
-          </div>
-        </div>
-
-        <div class="testi-controls" aria-hidden="false">
-          <button id="prevTesti" aria-label="Previous testimonial">Prev</button>
-          <button id="nextTesti" aria-label="Next testimonial">Next</button>
-        </div>
-      </section>
-
-    </main>
-
-    <!-- FOOTER -->
-    <footer class="site-footer">
-      <p>&copy; 2025 Heather Salter Therapy</p>
-    </footer>
-
-  </div>
+<footer>
+  <p>&copy; 2025 Heather Salter Therapy</p>
+</footer>
 
 <script>
-  // Testimonial carousel (same simple implementation)
-  (function(){
-    const slides = Array.from(document.querySelectorAll('.testi-slide'));
-    let idx = 0;
-    const show = i => slides.forEach((s,si)=> s.classList.toggle('active', si===i));
-    document.getElementById('prevTesti').addEventListener('click', ()=> { idx = (idx - 1 + slides.length) % slides.length; show(idx); });
-    document.getElementById('nextTesti').addEventListener('click', ()=> { idx = (idx + 1) % slides.length; show(idx); });
-    // auto rotate
-    let rot = setInterval(()=> { idx = (idx + 1) % slides.length; show(idx); }, 6000);
-    // pause on hover
-    const win = document.getElementById('testi-window');
-    win.addEventListener('mouseenter', ()=> clearInterval(rot));
-    win.addEventListener('mouseleave', ()=> { rot = setInterval(()=> { idx = (idx + 1) % slides.length; show(idx); }, 6000); });
-  })();
+(function(){
+  const slides = Array.from(document.querySelectorAll('.testi-slide'));
+  let idx = 0;
+  const show = i => slides.forEach((s,si)=> s.classList.toggle('active', si===i));
+  document.getElementById('prevTesti').onclick = ()=>{ idx=(idx-1+slides.length)%slides.length; show(idx); };
+  document.getElementById('nextTesti').onclick = ()=>{ idx=(idx+1)%slides.length; show(idx); };
+  setInterval(()=>{ idx=(idx+1)%slides.length; show(idx); }, 6000);
+})();
 </script>
+
 </body>
 </html>
