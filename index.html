@@ -5,91 +5,70 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Heather Salter Therapy</title>
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter&display=swap" rel="stylesheet">
 
     <style>
-        /* ---------------------- GLOBAL ---------------------- */
+        /* GLOBAL */
         body {
             margin: 0;
             font-family: 'Inter', sans-serif;
-            background-color: #F7F7F2;
-
-            /* soft subtle background texture */
-            background-image: radial-gradient(#e8e4d9 1px, transparent 1px),
-                              radial-gradient(#e8e4d9 1px, transparent 1px);
-            background-size: 22px 22px;
-            background-position: 0 0, 11px 11px;
-
+            background: linear-gradient(
+                to bottom,
+                #F7F7F2 0%,
+                #faf9f5 40%,
+                #f4efe5 100%
+            );
             color: #2F2F2F;
             line-height: 1.6;
         }
 
         a { text-decoration: none; color: inherit; }
 
-        h2 {
-            font-family: 'Inter', sans-serif;
-            margin-bottom: 10px;
-            color: #4e7070;
-        }
-
-        /* ---------------------- HERO ---------------------- */
-        .hero {
+        /* HERO SECTION */
+        header {
+            background-color: #C8D8C0; /* pastel sage */
+            padding: 40px 20px 0 20px;
             text-align: center;
-            padding: 60px 20px 25px;
-            background-color: #D6E4D0; /* soft sage green */
         }
 
-        .hero-logo img {
-            width: 130px;
+        /* Logo */
+        .hero-logo {
+            width: 260px;
             height: auto;
-            margin-bottom: 12px;
-            opacity: 0.95;
+            margin: 0 auto 10px auto;
         }
 
-        .site-title {
-            font-family: 'Libre Baskerville', serif;
-            font-size: 3rem;
-            margin-top: 5px;
-            margin-bottom: 15px;
-            color: #2d4233;
-        }
-
-        /* ---------------------- NAV TABS ---------------------- */
-        .hero-nav {
+        /* Navigation Tabs */
+        .nav-tabs {
             display: flex;
             justify-content: center;
-            gap: 40px;
+            gap: 30px;
             margin-top: 10px;
+            padding-bottom: 0;
         }
 
-        .nav-tab {
-            padding: 6px 14px;
-            font-size: 1.05rem;
-            color: #2d4233;
-
-            /* TABS (folder-style) */
-            background: #ECE7DF;
-            border: 1px solid rgba(0,0,0,0.12);
-            border-bottom: none;
-            border-radius: 6px 6px 0 0;
-            transition: background 0.2s ease, transform 0.2s ease;
+        .nav-tabs a {
+            padding: 10px 18px;
+            background-color: #e8e8dd;
+            font-weight: 600;
+            border-radius: 8px 8px 0 0;
+            transition: background-color 0.3s ease, transform 0.2s ease;
         }
 
-        .nav-tab:hover {
-            background: #e1dbd2;
+        .nav-tabs a:hover {
+            background-color: #d9d9c8;
             transform: translateY(-2px);
         }
 
-        /* ---------------------- DIVIDER LINE ---------------------- */
-        .hero-divider {
+        /* Divider Line */
+        .divider {
             width: 100%;
-            height: 2px;
-            background-color: rgba(0,0,0,0.55); /* dark near-black line */
+            height: 3px;
+            background-color: #3a3a3a;
             margin-top: 0;
         }
 
-        /* ---------------------- ABOUT SECTION ---------------------- */
+        /* SECTIONS */
         section {
             max-width: 900px;
             margin: 40px auto;
@@ -97,58 +76,76 @@
             border-radius: 12px;
         }
 
+        /* Welcome Section */
         .about-section {
-            background-color: #FFF4E8; /* warm pastel peach */
+            background-color: #FFF8F0; /* warm cream */
         }
 
         .about-container {
             display: flex;
             flex-wrap: wrap;
-            align-items: flex-start;
             gap: 20px;
+            align-items: flex-start;
         }
 
         .about-container img {
-            max-width: 350px;
+            max-width: 400px;
             border-radius: 12px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.1);
         }
 
-        .about-text { flex: 1; }
+        .about-text {
+            flex: 1;
+        }
 
-        /* ---------------------- CTA SECTION ---------------------- */
+        h2 {
+            color: #4e7070;
+            margin-bottom: 10px;
+        }
+
+        .about-text p {
+            margin-bottom: 25px;
+        }
+
+        ul {
+            padding-left: 20px;
+            list-style-type: disc;
+        }
+
+        /* CTA Section */
         .cta-section {
-            background-color: #E8F0EB; /* pastel green */
+            background-color: #F7E3D4; /* soft peach */
             text-align: center;
         }
 
         .button {
             display: inline-block;
-            margin-top: 15px;
-            padding: 14px 32px;
-            background-color: #C97A3D; /* burnt orange */
+            padding: 14px 30px;
+            background-color: #C07A3F; /* burnt orange */
             color: white;
             border-radius: 8px;
-            font-weight: 600;
-            transition: background 0.2s ease;
+            font-weight: bold;
+            margin-top: 20px;
+            transition: background-color 0.3s ease;
         }
 
         .button:hover {
-            background-color: #a8622d;
+            background-color: #a86128;
         }
 
-        /* ---------------------- FOOTER ---------------------- */
+        /* FOOTER */
         footer {
             text-align: center;
             padding: 20px;
             background-color: #E3DCC7;
         }
 
-        /* ---------------------- RESPONSIVE ---------------------- */
+        /* MOBILE */
         @media (max-width: 768px) {
             .about-container {
                 flex-direction: column;
             }
+
             .about-container img {
                 max-width: 100%;
             }
@@ -158,31 +155,34 @@
 
 <body>
 
-<!-- ---------------------- HERO ---------------------- -->
-<header class="hero">
-    <div class="hero-logo">
-        <img src="Logo 1.png"
+<!-- HERO -->
+<header>
+    <div class="hero-content">
+        <!-- UPDATE THIS TO YOUR ACTUAL LOGO FILE NAME -->
+        <img src="Logo 1.png" 
     </div>
 
-    <h1 class="site-title">Heather Salter Therapy</h1>
-
-    <nav class="hero-nav">
-        <a href="index.html" class="nav-tab">Home</a>
-        <a href="therapy.html" class="nav-tab">Therapy</a>
-        <a href="appointment.html" class="nav-tab">Appointments</a>
+    <nav class="nav-tabs">
+        <a href="index.html">Home</a>
+        <a href="about.html">About Me</a>
+        <a href="therapy.html">Therapy & Fees</a>
+        <a href="appointment.html">Book Appointment</a>
+        <a href="support.html">Support</a>
     </nav>
 
-    <div class="hero-divider"></div>
+    <div class="divider"></div>
 </header>
 
-<!-- ---------------------- ABOUT SECTION ---------------------- -->
+<!-- WELCOME / ABOUT SECTION -->
 <section class="about-section">
     <div class="about-container">
-        <img src="PXL_20240509_161057064~2.jpg" alt="Candle placeholder">
-        
+        <img src="PXL_20240509_161057064~2.jpg" alt="Candle placeholder image">
         <div class="about-text">
             <h2>Welcome</h2>
-            <p>My name is Heather Salter. I am a person-centred therapist working with individuals over 18. I offer ongoing therapeutic support to aid you in your journey to better wellbeing and personal growth. I specialise in the following difficulties:</p>
+
+            <p>My name is Heather Salter. I am a person-centred therapist working with individuals over 18. 
+            I offer ongoing therapuetic support to aid you in your journey to better wellbeing and personal 
+            growth. I specialise in the following difficulties:</p>
 
             <ul>
                 <li>Relationships & Dating</li>
@@ -200,16 +200,16 @@
     </div>
 </section>
 
-<!-- ---------------------- CTA SECTION ---------------------- -->
+<!-- CTA -->
 <section class="cta-section">
     <h2>Ready to Begin?</h2>
-    <p>Take the first step towards understanding yourself and feeling supported.  
-       You can book a <strong>free 20 minute introductory call</strong> with me below.</p>
+    <p>Take the first step towards understanding yourself and feeling supported. 
+    You can book a free 20 minute introductory call with me below.</p>
 
     <a href="appointment.html" class="button">Book Now</a>
 </section>
 
-<!-- ---------------------- FOOTER ---------------------- -->
+<!-- FOOTER -->
 <footer>
     <p>&copy; 2025 Heather Salter Therapy</p>
 </footer>
