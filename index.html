@@ -24,7 +24,7 @@
   body{
     margin:0;
     font-family:'Inter',sans-serif;
-    background:#F7F7F2;
+    background:#8CA894; /* NEW BACKGROUND COLOUR */
     color:#2F2F2F;
     line-height:1.5;
   }
@@ -40,7 +40,7 @@
     box-shadow:var(--section-shadow);
   }
 
-  /* Logo (reduced size — same as two prompts ago) */
+  /* Logo */
   .hero-logo{
     width:340px;
     max-width:90%;
@@ -48,7 +48,7 @@
     display:block;
   }
 
-  /* Tabs perfectly aligned with divider */
+  /* Tabs */
   .nav-tabs{
     position:absolute;
     left:50%;
@@ -80,9 +80,35 @@
     width:100%;
   }
 
-  /* Main */
-  .site-container{ max-width:980px; margin:36px auto; padding:0 18px; }
+  /* Main container */
+  .site-container{ 
+    max-width:980px; 
+    margin:36px auto; 
+    padding:0 18px; 
+    position:relative;
+  }
 
+  /* WATERMARK BACKGROUND */
+  .home-watermark{
+    position:relative;
+  }
+
+  .home-watermark::before{
+    content:"";
+    position:absolute;
+    top: -80px;
+    left:50%;
+    transform:translateX(-50%);
+    width:900px;
+    height:900px;
+    background:url('watermark 2.png') no-repeat center;
+    background-size:contain;
+    opacity:0.14;
+    pointer-events:none;
+    z-index:-1;
+  }
+
+  /* Welcome Box */
   .card-section{
     background:var(--cream);
     border:2px solid var(--sage-border);
@@ -90,6 +116,7 @@
     padding:28px;
     box-shadow:var(--section-shadow);
     margin-bottom:36px;
+    position:relative;
   }
 
   /* Welcome section grid */
@@ -189,6 +216,7 @@
 </head>
 
 <body>
+
 <header class="site-hero">
   <img src="logo 2.png" alt="Heather Salter Therapy logo" class="hero-logo">
 
@@ -205,8 +233,9 @@
 
 <main class="site-container">
 
-  <section class="card-section">
+  <section class="card-section home-watermark">
     <div class="about-grid">
+
       <div class="about-image">
         <img src="PXL_20240509_161057064~2.jpg" alt="Candle placeholder">
       </div>
@@ -228,6 +257,7 @@
           <li>Personal Development</li>
         </ul>
       </div>
+
     </div>
   </section>
 
