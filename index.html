@@ -24,8 +24,24 @@
   body{
     margin:0;
     font-family:'Inter',sans-serif;
-    background:#8CA894 url("watermark 2.png") repeat;
-    background-size:450px;
+    background-color:#8CA894;
+
+    /* 🔹 Updated diagonal pattern (closer + smaller) */
+    background-image:
+        url("watermark 2.png"),
+        url("watermark 2.png");
+
+    /* Repeat the flowers */
+    background-repeat: repeat;
+
+    /* Smaller flowers */
+    background-size: 300px 300px;
+
+    /* Diagonal offset pattern */
+    background-position:
+        0 0,
+        150px 150px;
+
     color:#2F2F2F;
     line-height:1.5;
   }
@@ -61,8 +77,8 @@
   }
   .nav-tabs a{
     padding:10px 18px;
-    background:#536358;   /* NEW */
-    color:#F4E7D6;         /* NEW */
+    background:#536358;
+    color:#F4E7D6;
     font-weight:600;
     border-radius:8px 8px 0 0;
     border:1px solid rgba(0,0,0,0.07);
