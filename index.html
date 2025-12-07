@@ -24,27 +24,24 @@
   body{
     margin:0;
     font-family:'Inter',sans-serif;
+
+    /* background colour stays the same */
     background-color:#8CA894;
 
-    /* 🔹 Updated diagonal pattern (closer + smaller) */
-    background-image:
-        url("watermark 2.png"),
-        url("watermark 2.png");
+    /* use the seamless new pattern image */
+    background-image: url("A_seamless_digital_illustration_pattern_features_a.png");
 
-    /* Repeat the flowers */
+    /* repeat it in both directions */
     background-repeat: repeat;
 
-    /* Smaller flowers */
-    background-size: 300px 300px;
+    /* adjust the scale of the flowers */
+    background-size: 420px;
 
-    /* Diagonal offset pattern */
-    background-position:
-        0 0,
-        150px 150px;
-
+    /* diagonal effect is built INTO the image — no offset needed */
+    
     color:#2F2F2F;
     line-height:1.5;
-  }
+}
   a{text-decoration:none;color:inherit}
   img{max-width:100%;height:auto;display:block}
 
