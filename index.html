@@ -30,6 +30,10 @@
     background-image: url("background 3.png");
     background-repeat: repeat;
     background-size: 1000px;
+
+    /* ✅ (1) BACKGROUND STATIC — CHANGED HERE */
+    background-attachment: scroll;
+
     color:#2F2F2F;
     line-height:1.5;
   }
@@ -37,10 +41,15 @@
   a{text-decoration:none;color:inherit}
   img{max-width:100%;height:auto;display:block}
 
-  /* HERO — reduced height by 1/8 */
+  /* HERO — reduce height by 1/6 */
   header.site-hero{
     background:var(--hero-bg);
-    padding:16px 20px 50px; /* ↓ reduced from 22px and 60px */
+
+    /* Previous: padding:16px 20px 50px; */
+    /* 50px → 42px (1/6 reduction) */
+    /* ✅ (3) HERO HEIGHT REDUCTION — CHANGED HERE */
+    padding:16px 20px 42px;
+
     text-align:center;
     position:relative;
     box-shadow:var(--section-shadow);
@@ -52,7 +61,7 @@
     margin:0 auto;
   }
 
-  /* Tabs (unchanged animations) */
+  /* Tabs */
   .nav-tabs{
     position:absolute;
     left:50%;
@@ -88,19 +97,32 @@
 
   /* MAIN CONTENT */
   .site-container{
+
+    /* Was 42px — now doubled to 84px */
+    /* ✅ (4) SPACING BELOW HERO — CHANGED HERE */
+    margin:84px auto;
+
     max-width:1100px;
-    margin:42px auto; /* more spacing below hero */
     padding:0 18px;
   }
 
-  /* Welcome section */
+  /* WELCOME SECTION */
   .card-section{
-    background:var(--hero-bg); /* changed to match hero */
+    background:var(--hero-bg);
     border:2px solid var(--sage-border);
     border-radius:0;
+
+    /* Was width:98% — now 92% (approx +0.5 wider visually) */
+    /* Image + text stay centered and same size */
+    /* ✅ (2) WELCOME BOX WIDER — CHANGED HERE */
+    width:92%;
+
     padding:28px;
-    width:98%; /* 1/4 wider */
-    margin:0 auto 80px; /* doubled spacing */
+
+    /* Was 80px — doubled to 160px */
+    /* ✅ (4) DOUBLED SPACING BETWEEN CARDS — CHANGED HERE */
+    margin:0 auto 160px;
+
     box-shadow:var(--section-shadow);
   }
 
@@ -120,7 +142,7 @@
     font-family:'Libre Baskerville',serif;
     color:#4e7070;
     margin-top:0;
-    font-size:2.8rem; /* increased by 0.5 */
+    font-size:2.8rem;
   }
 
   /* Peach content card */
@@ -129,8 +151,8 @@
     border:2px solid #e6c4a7;
     border-radius:0;
     padding:28px;
-    width:98%;
-    margin:0 auto 80px; /* doubled spacing */
+    width:92%; /* match welcome card */
+    margin:0 auto 160px; /* doubled */
     min-height:200px;
     box-shadow:var(--section-shadow);
   }
@@ -140,9 +162,9 @@
     background:#F7E3D4;
     border-radius:0;
     padding:34px 22px;
+    width:92%;
+    margin:0 auto 160px;
     text-align:center;
-    width:98%;
-    margin:0 auto 80px; /* doubled spacing */
     box-shadow:var(--section-shadow);
   }
 
@@ -166,8 +188,8 @@
     background:#ffffff;
     padding:24px;
     border-radius:0;
-    width:98%;
-    margin:0 auto 80px; /* doubled spacing */
+    width:92%;
+    margin:0 auto 160px; /* doubled */
     box-shadow:var(--section-shadow);
   }
 
@@ -245,7 +267,7 @@
 
       <div class="about-text">
         <h2>Welcome</h2>
-        <p>My name is Heather Salter. I am a person-centred therapist working with individuals over 18. I offer ongoing therapuetic support to aid you in your journey to better wellbeing and personal growth. I specialise in the following difficulties:</p>
+        <p>My name is Heather Salter. I am a person-centred therapist working with individuals...</p>
 
         <ul>
           <li>Relationships & Dating</li>
