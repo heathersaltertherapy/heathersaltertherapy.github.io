@@ -19,23 +19,19 @@
     --card-shadow: 0 6px 14px rgba(31,31,31,0.06);
   }
 
-  /* Reset */
   *{box-sizing:border-box}
   body{
     margin:0;
     font-family:'Inter',sans-serif;
 
-    /* background */
     background-color:#8CA894;
     background-image: url("background 3.png");
     background-repeat: repeat;
     background-size: 1000px;
+    background-attachment: fixed;
 
     color:#2F2F2F;
     line-height:1.5;
-
-    /* NEW: static background */
-    background-attachment: fixed;
   }
   a{text-decoration:none;color:inherit}
   img{max-width:100%;height:auto;display:block}
@@ -43,27 +39,19 @@
   /* HERO */
   header.site-hero{
     background:#FDFAF0;
-
-    /* Slightly reduced height (was 28px 20px 70px) */
     padding:20px 20px 55px;
-
     text-align:center;
     position:relative;
     box-shadow:var(--section-shadow);
-
-    /* Width restored to original */
-    max-width:none;
   }
 
-  /* Logo */
   .hero-logo{
-    width:340px; /* unchanged */
+    width:340px;
     max-width:90%;
     margin:0 auto;
     display:block;
   }
 
-  /* Tabs */
   .nav-tabs{
     position:absolute;
     left:50%;
@@ -81,41 +69,45 @@
     border-radius:8px 8px 0 0;
     border:1px solid rgba(0,0,0,0.07);
     box-shadow:0 2px 6px rgba(0,0,0,0.05);
-
-    /* NEW: keep them visually touching the divider */
-    transition:transform 0.25s ease, margin-bottom 0.25s ease;
+    transition: transform 0.25s ease, margin-bottom 0.25s ease;
   }
   .nav-tabs a:hover{
     transform:translateY(-3px);
-    margin-bottom:3px; /* closes the gap on hover */
+    margin-bottom:3px;
   }
 
-  /* Divider */
   .hero-divider{
     height:3px;
     background:#536358;
     width:100%;
   }
 
-  /* Main container */
   .site-container{
     max-width:980px;
     margin:36px auto;
     padding:0 18px;
   }
 
-  /* FULL-WIDTH WELCOME SECTION */
+  /* ---------------------- */
+  /* UPDATED WELCOME BOX    */
+  /* ---------------------- */
+
   .welcome-wrapper{
-    width:100%;
     background:var(--cream);
     border:2px solid var(--sage-border);
-    border-radius:12px;
+
+    /* SHARP EDGES NOW */
+    border-radius:0;
+
     padding:28px;
-    box-shadow:var(--section-shadow); /* stronger shadow */
-    margin:36px 0;
+
+    /* NEW: about 1 inch from sides */
+    max-width:940px;
+    margin:36px auto;
+
+    box-shadow:var(--section-shadow);
   }
 
-  /* Welcome grid */
   .about-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
@@ -126,18 +118,16 @@
     .about-grid{ grid-template-columns:1fr; }
   }
 
+  /* Original image size restored: no forced dimensions, no scaling */
   .about-image img{
-    border-radius:0; /* SHARP EDGES */
+    border-radius:0;
     box-shadow:var(--card-shadow);
   }
 
   .about-text h2{
     font-family:'Libre Baskerville',serif;
     color:#4e7070;
-
-    /* doubled size */
     font-size:3.8rem;
-
     margin-top:0;
   }
 
@@ -147,7 +137,7 @@
     border-radius:10px;
     padding:34px 22px;
     text-align:center;
-    box-shadow:var(--section-shadow); /* stronger shadow */
+    box-shadow:var(--section-shadow);
     margin-bottom:36px;
   }
   .cta .btn{
@@ -169,7 +159,7 @@
     background:#ffffff;
     padding:24px;
     border-radius:10px;
-    box-shadow:var(--section-shadow); /* stronger shadow */
+    box-shadow:var(--section-shadow);
     max-width:880px;
     margin:0 auto 36px;
   }
@@ -207,7 +197,6 @@
     background:#E0D9CF;
   }
 
-  /* Footer */
   footer{
     background:#E3DCC7;
     padding:20px;
@@ -232,7 +221,7 @@
 
 <div class="hero-divider"></div>
 
-<!-- NEW FULL-WIDTH WELCOME SECTION -->
+<!-- UPDATED WELCOME BOX -->
 <section class="welcome-wrapper">
   <div class="about-grid">
     <div class="about-image">
