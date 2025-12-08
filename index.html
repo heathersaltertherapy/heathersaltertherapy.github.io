@@ -1,161 +1,319 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
 <title>Heather Salter Therapy</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Libre+Baskerville:wght@400;700&display=swap" rel="stylesheet">
+
 <style>
-/* ---------------- GLOBAL ---------------- */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background-color: #8CA894;
-    background-image: url("images/wallpaper.png"); /* STATIC again */
+  :root{
+    --sage: #C8D8C0;
+    --sage-border: #BFD5C3;
+    --cream: #FFF8F0;
+    --muted-charcoal: #444444;
+    --burnt: #C07A3F;
+    --burnt-dark: #a86128;
+    --hero-bg: #FDFAF0;
+    --section-shadow: 0 8px 18px rgba(31,31,31,0.08);
+    --card-shadow: 0 6px 14px rgba(31,31,31,0.06);
+    --peach: #F8DCC5;
+  }
+
+  *{box-sizing:border-box}
+
+  body{
+    margin:0;
+    font-family:'Inter',sans-serif;
+    background-color:#8CA894;
+    background-image: url("background 3.png");
     background-repeat: repeat;
-    background-size: 600px; /* use whatever your wallpaper requires */
-    background-attachment: scroll; /* you requested this returned */
-}
+    background-size: 1000px;
+    color:#2F2F2F;
+    line-height:1.5;
+  }
 
-/* --------------- HERO ------------------- */
-.hero {
-    background-color: #8CA894;
-    height: calc(300px - (300px / 6)); /* reduced height by 1/6 */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-end;
-    padding-bottom: 20px;
-    position: relative;
-}
+  a{text-decoration:none;color:inherit}
+  img{max-width:100%;height:auto;display:block}
 
-.logo {
-    height: 140px;  /* UNCHANGED */
-    width: auto;
-}
+  /* HERO — reduced height by 1/8 */
+  header.site-hero{
+    background:var(--hero-bg);
+    padding:16px 20px 50px; /* ↓ reduced from 22px and 60px */
+    text-align:center;
+    position:relative;
+    box-shadow:var(--section-shadow);
+  }
 
-/* Divider */
-.divider {
-    width: 100%;
-    height: 2px;
-    background-color: #536358;
-    margin-top: 10px;
-}
+  .hero-logo{
+    width:340px;
+    max-width:90%;
+    margin:0 auto;
+  }
 
-/* --------------- TABS ------------------- */
-.nav {
-    display: flex;
-    gap: 30px;
-    margin-top: 10px;
-}
+  /* Tabs (unchanged animations) */
+  .nav-tabs{
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%);
+    bottom:0;
+    display:flex;
+    gap:18px;
+    z-index:5;
+  }
 
-.nav a {
-    text-decoration: none;
-    color: #F4E7D6;
-    font-size: 1.2rem;
-    padding: 5px 10px;
-    position: relative;
-}
+  .nav-tabs a{
+    padding:10px 18px;
+    background:#536358;
+    color:#F4E7D6;
+    font-weight:600;
+    border-radius:8px 8px 0 0;
+    border:1px solid rgba(0,0,0,0.07);
+    box-shadow:0 2px 6px rgba(0,0,0,0.05);
+    transition:transform 0.22s ease, box-shadow 0.22s ease;
+    transform-origin:bottom;
+  }
 
-/* Your corrected hover effect — stays touching divider line */
-.nav a::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px; /* touches the divider */
-    width: 0;
-    height: 2px;
-    background-color: #F4E7D6;
-    transition: width 0.25s ease;
-}
+  .nav-tabs a:hover{
+    transform:scale(1.04);
+    box-shadow:0 4px 12px rgba(0,0,0,0.12);
+  }
 
-.nav a:hover::after {
-    width: 100%;
-}
+  .hero-divider{
+    height:3px;
+    background:#536358;
+    width:100%;
+  }
 
-/* Prevent all tabs from animating on hover */
-.nav a:hover {
-    color: #F4E7D6;
-}
+  /* MAIN CONTENT */
+  .site-container{
+    max-width:1100px;
+    margin:42px auto; /* more spacing below hero */
+    padding:0 18px;
+  }
 
-/* ---------------- CONTENT CARDS ---------------- */
-.content-card {
-    background: #F4E7D6;
-    width: 75%; /* increased by 0.5 from previous size */
-    margin: 80px auto; /* DOUBLED spacing */
-    padding: 40px;
-    border-radius: 0px; /* sharp edges as requested */
-    box-shadow: 0 4px 10px rgba(0,0,0,0.25);
-}
+  /* Welcome section */
+  .card-section{
+    background:var(--hero-bg); /* changed to match hero */
+    border:2px solid var(--sage-border);
+    border-radius:0;
+    padding:28px;
+    width:98%; /* 1/4 wider */
+    margin:0 auto 80px; /* doubled spacing */
+    box-shadow:var(--section-shadow);
+  }
 
-/* First card ("Welcome") uses hero background color */
-.content-card.welcome {
-    background: #8CA894;
-    color: #F4E7D6;
-}
+  .about-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:22px;
+    align-items:start;
+  }
 
-/* Welcome title increased by 0.5 */
-.content-card.welcome h1 {
-    font-size: 2.5rem;
-    text-align: center;
-}
+  .about-image img{
+    border-radius:0;
+    box-shadow:var(--card-shadow);
+  }
 
-/* Welcome image size returned EXACTLY to original */
-.welcome-img {
-    width: 300px;
-    border-radius: 0px; /* sharp edges */
-    display: block;
-    margin: 0 auto 20px auto;
-}
+  .about-text h2{
+    font-family:'Libre Baskerville',serif;
+    color:#4e7070;
+    margin-top:0;
+    font-size:2.8rem; /* increased by 0.5 */
+  }
 
-/* New pastel orange card */
-.content-card.orange {
-    background: #F9D7A5;
-    height: 350px; /* blank space for now */
-}
+  /* Peach content card */
+  .peach-card{
+    background:var(--peach);
+    border:2px solid #e6c4a7;
+    border-radius:0;
+    padding:28px;
+    width:98%;
+    margin:0 auto 80px; /* doubled spacing */
+    min-height:200px;
+    box-shadow:var(--section-shadow);
+  }
 
+  /* CTA */
+  .cta{
+    background:#F7E3D4;
+    border-radius:0;
+    padding:34px 22px;
+    text-align:center;
+    width:98%;
+    margin:0 auto 80px; /* doubled spacing */
+    box-shadow:var(--section-shadow);
+  }
+
+  .cta .btn{
+    display:inline-block;
+    background:var(--burnt);
+    color:#fff;
+    padding:12px 28px;
+    border-radius:8px;
+    font-weight:600;
+    transition:0.2s;
+  }
+
+  .cta .btn:hover{
+    background:var(--burnt-dark);
+    transform:translateY(-3px);
+  }
+
+  /* Testimonials */
+  .testimonials{
+    background:#ffffff;
+    padding:24px;
+    border-radius:0;
+    width:98%;
+    margin:0 auto 80px; /* doubled spacing */
+    box-shadow:var(--section-shadow);
+  }
+
+  .testimonials h3{
+    font-family:'Libre Baskerville',serif;
+    text-align:center;
+    margin-top:0;
+    color:#4e7070;
+  }
+
+  .testi-window{
+    min-height:110px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:10px;
+    text-align:center;
+  }
+
+  .testi-slide{ display:none; }
+  .testi-slide.active{ display:block; }
+
+  .testi-controls{
+    display:flex;
+    gap:8px;
+    justify-content:center;
+    margin-top:12px;
+  }
+
+  .testi-controls button{
+    background:#ECE7DF;
+    border:none;
+    padding:8px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+  }
+
+  .testi-controls button:hover{
+    background:#E0D9CF;
+  }
+
+  footer{
+    background:#E3DCC7;
+    padding:20px;
+    text-align:center;
+  }
 </style>
 </head>
 
 <body>
 
-<!-- HERO -->
-<div class="hero">
-    <img src="images/logo.png" alt="Logo" class="logo">
+<header class="site-hero">
+  <img src="logo 2.png" alt="Heather Salter Therapy logo" class="hero-logo">
 
-    <div class="nav">
-        <a href="#">Home</a>
-        <a href="#">About</a>
-        <a href="#">Therapies</a>
-        <a href="#">Contact</a>
+  <nav class="nav-tabs">
+    <a href="index.html">Home</a>
+    <a href="about.html">About Me</a>
+    <a href="therapy.html">Therapy &amp; Fees</a>
+    <a href="appointment.html">Book Appointment</a>
+    <a href="support.html">Support</a>
+  </nav>
+</header>
+
+<div class="hero-divider"></div>
+
+<main class="site-container">
+
+  <!-- Welcome -->
+  <section class="card-section">
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="PXL_20240509_161057064~2.jpg" alt="Candle image">
+      </div>
+
+      <div class="about-text">
+        <h2>Welcome</h2>
+        <p>My name is Heather Salter. I am a person-centred therapist working with individuals over 18. I offer ongoing therapuetic support to aid you in your journey to better wellbeing and personal growth. I specialise in the following difficulties:</p>
+
+        <ul>
+          <li>Relationships & Dating</li>
+          <li>Low self-esteem & lack of confidence</li>
+          <li>Anxiety and Depression</li>
+          <li>Phobias</li>
+          <li>Sexuality, Gender, LGBTQ+ difficulties</li>
+          <li>ADHD & ASC (neurodiversity)</li>
+          <li>Grief and Loss</li>
+          <li>Stress management</li>
+          <li>Anger management</li>
+          <li>Personal Development</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Peach card -->
+  <section class="peach-card"></section>
+
+  <section class="cta">
+    <h3>Ready to begin?</h3>
+    <p>Take the first step towards understanding yourself and feeling supported. You can book a free 20 minute introductory call with me below.</p>
+    <a class="btn" href="appointment.html">Book now</a>
+  </section>
+
+  <section class="testimonials">
+    <h3>Testimonials</h3>
+
+    <div class="testi-window" id="testi-window">
+      <div class="testi-slide active">
+        <blockquote>"Heather created a calm, accepting space where I felt genuinely heard."</blockquote>
+        <cite>— J, Hampshire</cite>
+      </div>
+
+      <div class="testi-slide">
+        <blockquote>"The sessions helped me understand my patterns and Heather is a wonderful therapist."</blockquote>
+        <cite>— R, UK</cite>
+      </div>
+
+      <div class="testi-slide">
+        <blockquote>"You really made me feel comfortable even though I'd never had therapy before."</blockquote>
+        <cite>— S, Online Client</cite>
+      </div>
     </div>
 
-    <div class="divider"></div>
-</div>
+    <div class="testi-controls">
+      <button id="prevTesti">Prev</button>
+      <button id="nextTesti">Next</button>
+    </div>
+  </section>
 
-<!-- WELCOME BOX -->
-<div class="content-card welcome">
-    <h1>Welcome</h1>
-    <img src="images/welcome.jpg" class="welcome-img">
-    <p>Your welcome text goes here exactly as before.</p>
-</div>
+</main>
 
-<!-- NEW ORANGE CARD -->
-<div class="content-card orange">
-    <!-- Blank for now -->
-</div>
+<footer>
+  <p>&copy; 2025 Heather Salter Therapy</p>
+</footer>
 
-<!-- READY TO BEGIN -->
-<div class="content-card">
-    <h2>Ready to Begin?</h2>
-    <p>Your content here.</p>
-</div>
-
-<!-- TESTIMONIALS -->
-<div class="content-card">
-    <h2>Testimonials</h2>
-    <p>Your content here.</p>
-</div>
+<script>
+(function(){
+  const slides = Array.from(document.querySelectorAll('.testi-slide'));
+  let idx = 0;
+  const show = i => slides.forEach((s,si)=> s.classList.toggle('active', si===i));
+  document.getElementById('prevTesti').onclick = ()=>{ idx=(idx-1+slides.length)%slides.length; show(idx); };
+  document.getElementById('nextTesti').onclick = ()=>{ idx=(idx+1)%slides.length; show(idx); };
+  setInterval(()=>{ idx=(idx+1)%slides.length; show(idx); }, 6000);
+})();
+</script>
 
 </body>
 </html>
