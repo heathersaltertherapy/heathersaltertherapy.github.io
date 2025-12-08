@@ -15,31 +15,31 @@
     --muted-charcoal: #444444;
     --burnt: #C07A3F;
     --burnt-dark: #a86128;
-    --section-shadow: 0 10px 24px rgba(0,0,0,0.10);
+    --section-shadow: 0 8px 18px rgba(31,31,31,0.08);
     --card-shadow: 0 6px 14px rgba(31,31,31,0.06);
+    --peach: #F8DCC5;
   }
 
   *{box-sizing:border-box}
+
   body{
     margin:0;
     font-family:'Inter',sans-serif;
-
     background-color:#8CA894;
     background-image: url("background 3.png");
     background-repeat: repeat;
     background-size: 1000px;
-    background-attachment: fixed;
-
     color:#2F2F2F;
     line-height:1.5;
   }
+
   a{text-decoration:none;color:inherit}
   img{max-width:100%;height:auto;display:block}
 
   /* HERO */
   header.site-hero{
     background:#FDFAF0;
-    padding:20px 20px 55px;
+    padding:22px 20px 60px;
     text-align:center;
     position:relative;
     box-shadow:var(--section-shadow);
@@ -49,9 +49,9 @@
     width:340px;
     max-width:90%;
     margin:0 auto;
-    display:block;
   }
 
+  /* Tabs */
   .nav-tabs{
     position:absolute;
     left:50%;
@@ -61,6 +61,7 @@
     gap:18px;
     z-index:5;
   }
+
   .nav-tabs a{
     padding:10px 18px;
     background:#536358;
@@ -69,11 +70,14 @@
     border-radius:8px 8px 0 0;
     border:1px solid rgba(0,0,0,0.07);
     box-shadow:0 2px 6px rgba(0,0,0,0.05);
-    transition: transform 0.25s ease, margin-bottom 0.25s ease;
+    transition:transform 0.22s ease, box-shadow 0.22s ease;
+    transform-origin:bottom;
   }
+
+  /* YOUR CHOSEN OPTION C — scale up slightly, no gap created */
   .nav-tabs a:hover{
-    transform:translateY(-3px);
-    margin-bottom:3px;
+    transform: scale(1.04);
+    box-shadow:0 4px 12px rgba(0,0,0,0.12);
   }
 
   .hero-divider{
@@ -82,30 +86,22 @@
     width:100%;
   }
 
+  /* MAIN CONTENT */
   .site-container{
-    max-width:980px;
+    max-width:1100px;
     margin:36px auto;
     padding:0 18px;
   }
 
-  /* ---------------------- */
-  /* UPDATED WELCOME BOX    */
-  /* ---------------------- */
-
-  .welcome-wrapper{
+  /* Welcome section */
+  .card-section{
     background:var(--cream);
     border:2px solid var(--sage-border);
-
-    /* SHARP EDGES NOW */
-    border-radius:0;
-
+    border-radius:0; /* sharp edges */
     padding:28px;
-
-    /* NEW: about 1 inch from sides */
-    max-width:940px;
-    margin:36px auto;
-
     box-shadow:var(--section-shadow);
+    width:95%; /* about 1 inch from sides on most screens */
+    margin:0 auto 40px;
   }
 
   .about-grid{
@@ -114,32 +110,42 @@
     gap:22px;
     align-items:start;
   }
-  @media (max-width:820px){
-    .about-grid{ grid-template-columns:1fr; }
-  }
 
-  /* Original image size restored: no forced dimensions, no scaling */
   .about-image img{
-    border-radius:0;
+    border-radius:0; /* sharp image edges */
     box-shadow:var(--card-shadow);
   }
 
   .about-text h2{
     font-family:'Libre Baskerville',serif;
     color:#4e7070;
-    font-size:3.8rem;
     margin-top:0;
+    font-size:2.3rem; /* 1 step bigger */
+  }
+
+  /* New Pastel Orange Content Block */
+  .peach-card{
+    background:var(--peach);
+    border:2px solid #e6c4a7;
+    border-radius:0;
+    padding:28px;
+    width:95%;
+    margin:0 auto 40px;
+    box-shadow:var(--section-shadow);
+    min-height:200px;
   }
 
   /* CTA */
   .cta{
     background:#F7E3D4;
-    border-radius:10px;
+    border-radius:0;
     padding:34px 22px;
     text-align:center;
     box-shadow:var(--section-shadow);
-    margin-bottom:36px;
+    width:95%;
+    margin:0 auto 40px;
   }
+
   .cta .btn{
     display:inline-block;
     background:var(--burnt);
@@ -149,6 +155,7 @@
     font-weight:600;
     transition:0.2s;
   }
+
   .cta .btn:hover{
     background:var(--burnt-dark);
     transform:translateY(-3px);
@@ -158,17 +165,20 @@
   .testimonials{
     background:#ffffff;
     padding:24px;
-    border-radius:10px;
+    border-radius:0;
     box-shadow:var(--section-shadow);
-    max-width:880px;
+    max-width:1000px;
+    width:95%;
     margin:0 auto 36px;
   }
+
   .testimonials h3{
     font-family:'Libre Baskerville',serif;
     text-align:center;
     margin-top:0;
     color:#4e7070;
   }
+
   .testi-window{
     min-height:110px;
     display:flex;
@@ -221,34 +231,39 @@
 
 <div class="hero-divider"></div>
 
-<!-- UPDATED WELCOME BOX -->
-<section class="welcome-wrapper">
-  <div class="about-grid">
-    <div class="about-image">
-      <img src="PXL_20240509_161057064~2.jpg" alt="Candle image">
-    </div>
-
-    <div class="about-text">
-      <h2>Welcome</h2>
-      <p>My name is Heather Salter. I am a person-centred therapist working with individuals over 18. I offer ongoing therapuetic support to aid you in your journey to better wellbeing and personal growth. I specialise in the following difficulties:</p>
-
-      <ul>
-        <li>Relationships & Dating</li>
-        <li>Low self-esteem & lack of confidence</li>
-        <li>Anxiety and Depression</li>
-        <li>Phobias</li>
-        <li>Sexuality, Gender, LGBTQ+ difficulties</li>
-        <li>ADHD & ASC (neurodiversity)</li>
-        <li>Grief and Loss</li>
-        <li>Stress management</li>
-        <li>Anger management</li>
-        <li>Personal Development</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
 <main class="site-container">
+
+  <!-- Welcome -->
+  <section class="card-section">
+    <div class="about-grid">
+      <div class="about-image">
+        <img src="PXL_20240509_161057064~2.jpg" alt="Candle image">
+      </div>
+
+      <div class="about-text">
+        <h2>Welcome</h2>
+        <p>My name is Heather Salter. I am a person-centred therapist working with individuals over 18. I offer ongoing therapuetic support to aid you in your journey to better wellbeing and personal growth. I specialise in the following difficulties:</p>
+
+        <ul>
+          <li>Relationships & Dating</li>
+          <li>Low self-esteem & lack of confidence</li>
+          <li>Anxiety and Depression</li>
+          <li>Phobias</li>
+          <li>Sexuality, Gender, LGBTQ+ difficulties</li>
+          <li>ADHD & ASC (neurodiversity)</li>
+          <li>Grief and Loss</li>
+          <li>Stress management</li>
+          <li>Anger management</li>
+          <li>Personal Development</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- NEW pastel orange card -->
+  <section class="peach-card">
+    <!-- left blank by your request -->
+  </section>
 
   <section class="cta">
     <h3>Ready to begin?</h3>
